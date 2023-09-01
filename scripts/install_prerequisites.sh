@@ -116,8 +116,8 @@ if ((VERBOSE > 0)); then echo "Using \"$MANAGER\" package manager (select anothe
 # Setup prereq commands and packages.
 if [[ "$MANAGER" == "apt" ]]; then
     SUDO="sudo"
-    PKGS_UPDATE="apt update"
-    PKGS_OPTIONS+=(install --no-install-suggests --no-install-recommends)
+    PKGS_UPDATE="apt update -y"
+    PKGS_OPTIONS+=(install -y --no-install-suggests --no-install-recommends)
     if ((DRYRUN > 0));  then PKGS_OPTIONS+=(--dry-run); SUDO=""; fi
     PKGS_REQUIRED+=(libgl1-mesa-dev libwayland-dev libxkbcommon-dev wayland-protocols libegl1-mesa-dev)
     PKGS_REQUIRED+=(libc++-dev libglew-dev libeigen3-dev cmake g++ ninja-build)
